@@ -2125,7 +2125,7 @@ do
 				local Params = typeof(First) == "table" and First or Second
 
 				Info.Text = Params.Text or ""
-				Info.Func = Params.Func or function() end
+				Info.Func = Params.Func or Params.Callback or function() end
 				Info.DoubleClick = Params.DoubleClick
 
 				Info.Tooltip = Params.Tooltip
