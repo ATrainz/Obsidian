@@ -547,21 +547,13 @@ local ScreenGui = New("ScreenGui", {
 	DisplayOrder = 999,
 	ResetOnSpawn = false,
 })
+
 ParentUI(ScreenGui)
 Library.ScreenGui = ScreenGui
 ScreenGui.DescendantRemoving:Connect(function(Instance)
 	Library:RemoveFromRegistry(Instance)
 	Library.DPIRegistry[Instance] = nil
 end)
-
-local ModalElement = New("TextButton", {
-	BackgroundTransparency = 1,
-	Modal = false,
-	Size = UDim2.fromScale(0, 0),
-	Text = "",
-	ZIndex = -999,
-	Parent = ScreenGui,
-})
 
 --// Cursor
 local Cursor
@@ -3495,7 +3487,7 @@ do
 			if Info.Multi then
 				local Table = {}
 
-				for Val, Active in pairs(Value) do
+				for Val, Active in pairs(Value or {}) do
 					if Active and table.find(Dropdown.Values, Val) then
 						Table[Val] = true
 					end
@@ -4893,7 +4885,6 @@ function Library:CreateWindow(WindowInfo)
 		end
 
 		MainFrame.Visible = Library.Toggled
-		ModalElement.Modal = Library.Toggled
 
 		if Library.Toggled and not Library.IsMobile then
 			local OldMouseIconEnabled = UserInputService.MouseIconEnabled
