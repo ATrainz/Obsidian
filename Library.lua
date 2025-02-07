@@ -2035,6 +2035,7 @@ do
 
 		local TextLabel = New("TextLabel", {
 			BackgroundTransparency = 1,
+			RichText = true,
 			Size = UDim2.new(1, 0, 0, 18),
 			Text = Label.Text,
 			TextSize = Data.Size,
@@ -2626,6 +2627,7 @@ do
 		local Button = New("TextButton", {
 			Active = not Toggle.Disabled,
 			BackgroundTransparency = 1,
+			RichText = true,
 			Size = UDim2.new(1, 0, 0, 18),
 			Text = "",
 			Visible = Toggle.Visible,
@@ -2634,6 +2636,7 @@ do
 
 		local Label = New("TextLabel", {
 			BackgroundTransparency = 1,
+			RichText = true,
 			Size = UDim2.new(1, -40, 1, 0),
 			Text = Toggle.Text,
 			TextSize = 14,
@@ -3248,6 +3251,7 @@ do
 
 		local Label = New("TextLabel", {
 			BackgroundTransparency = 1,
+			RichText = true,
 			Size = UDim2.new(1, 0, 0, 14),
 			Text = Dropdown.Text,
 			TextSize = 14,
@@ -3258,6 +3262,7 @@ do
 
 		local Display = New("TextButton", {
 			Active = not Dropdown.Disabled,
+			RichText = true,
 			AnchorPoint = Vector2.new(0, 1),
 			BackgroundColor3 = "MainColor",
 			BorderColor3 = "OutlineColor",
