@@ -3678,8 +3678,8 @@ function Library:Notify(...)
 	local Info = select(1, ...)
 
 	if typeof(Info) == "table" then
-		Data.Title = tostring(Info.Title)
-		Data.Description = tostring(Info.Description)
+		Data.Title = tostring(Info.Title or Info.Text)
+		Data.Description = tostring(Info.Description or Info.Content or "")
 		Data.Time = Info.Time or 5
 		Data.SoundId = Info.SoundId
 	else
