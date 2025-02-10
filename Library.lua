@@ -3249,18 +3249,16 @@ do
 			Parent = Container,
 		})
 
-		if Dropdown.Text then
-			local Label = New("TextLabel", {
-				BackgroundTransparency = 1,
-				RichText = true,
-				Size = UDim2.new(1, 0, 0, 14),
-				Text = Dropdown.Text,
-				TextSize = 14,
-				TextXAlignment = Enum.TextXAlignment.Left,
-				Visible = not not Info.Text,
-				Parent = Holder,
-			})
-		end
+		local Label = New("TextLabel", {
+			BackgroundTransparency = 1,
+			RichText = true,
+			Size = UDim2.new(1, 0, 0, 14),
+			Text = Dropdown.Text,
+			TextSize = 14,
+			TextXAlignment = Enum.TextXAlignment.Left,
+			Visible = not not Info.Text,
+			Parent = Holder,
+		})
 
 		local Display = New("TextButton", {
 			Active = not Dropdown.Disabled,
