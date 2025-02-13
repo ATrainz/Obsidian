@@ -8,6 +8,7 @@ local SaveManager = loadstring(game:HttpGet(repo .. "addons/SaveManager.lua"))()
 
 local Options = Library.Options
 local Toggles = Library.Toggles
+local Labels = Library.Labels
 
 Library.ForceCheckbox = false -- Forces AddToggle to AddCheckbox
 Library.ShowToggleFrameInKeybinds = true -- Make toggle keybinds work inside the keybinds UI (aka adds a toggle to the UI). Good for mobile users (Default value = true)
@@ -34,12 +35,27 @@ local Window = Library:CreateWindow({
 -- I strongly recommend decoupling UI code from logic code. i.e. Create your UI elements FIRST, and THEN setup :OnChanged functions later.
 
 -- You do not have to set your tabs & groups up this way, just a prefrence.
+-- You can find more icons in https://lucide.dev/
 local Tabs = {
 	-- Creates a new tab titled Main
 	Main = Window:AddTab("Main", "user"),
 	Key = Window:AddKeyTab("Key System"),
 	["UI Settings"] = Window:AddTab("UI Settings", "settings"),
 }
+
+
+--[[
+Example of how to add a warning box to a tab; the title AND text support rich text formatting.
+
+local WarningTab = Tabs["UI Settings"]:AddTab("Warning Box", "user")
+
+WarningTab:UpdateWarningBox({
+	Visible = true,
+	Title = "Warning",
+	Text = "This is a warning box!",
+})
+
+]]
 
 -- Groupbox and Tabbox inherit the same functions
 -- except Tabboxes you have to call the functions on a tab (Tabbox:AddTab(name))
@@ -204,12 +220,12 @@ LeftGroupBox:AddLabel("SecondTestLabel", {
 	DoesWrap = false, -- Defaults to false
 })
 
--- Options is a table added to getgenv() by the library
--- You index Options with the specified index, in this case it is 'SecondTestLabel' & 'TestLabel'
+-- Labels is a table added to getgenv() by the library
+-- You index Labels with the specified index, in this case it is 'SecondTestLabel' & 'TestLabel'
 -- To set the text of the label you do label:SetText
 
--- Options.TestLabel:SetText("first changed!")
--- Options.SecondTestLabel:SetText("second changed!")
+-- Labels.TestLabel:SetText("first changed!")
+-- Labels.SecondTestLabel:SetText("second changed!")
 
 -- Groupbox:AddDivider
 -- Arguments: None
