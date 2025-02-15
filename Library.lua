@@ -1572,8 +1572,8 @@ do
 		end))
 
 		KeyPicker:Update()
-
 		KeyPicker.KeybindsToggle = KeybindsToggle
+
 		if ParentObj.Addons then
 			table.insert(ParentObj.Addons, KeyPicker)
 		end
