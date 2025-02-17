@@ -3796,6 +3796,22 @@ function Library:Notify(...)
 
 		FakeBackground.Size = UDim2.fromOffset((TitleX > DescX and TitleX or DescX) + (24 * Library.DPIScale), 0)
 	end
+
+	function Data:ChangeTitle(NewText)
+		if Title then
+			Data.Title = tostring(NewText)
+			Title.Text = Data.Title
+			Data:Resize()
+		end
+	end
+	function Data:ChangeDescription(NewText)
+		if Desc then
+			Data.Description = tostring(NewText)
+			Desc.Text = Data.Description
+			Data:Resize()
+		end
+	end
+
 	Data:Resize()
 
 	local TimerHolder = New("Frame", {
@@ -3854,6 +3870,7 @@ function Library:Notify(...)
 			FakeBackground:Destroy()
 		end)
 	end)
+	return Data
 end
 
 function Library:CreateWindow(WindowInfo)
